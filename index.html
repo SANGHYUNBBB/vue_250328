@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      :root {
+        --m-c1: #42b983;
+        --t-c1: #333;
+        --t-c2: #888;
+        --b-c1: #ddd;
+        --b-c2: #eee;
+        --t-w: white;
+        --active-c: #7bbd9f;
+        --btn-primary: #42b983;
+        --btn-danger: #ff6b6b;
+        --gap1: 6px;
+        --gap2: 16px;
+        --gap3: 32px;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        line-height: 1.6;
+        color: var(--t-c1);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        text-align: center;
+        color: var(--m-c1);
+        margin: var(--gap3) 0;
+      }
+      button {
+        cursor: pointer;
+        border: none;
+        padding: var(--gap1) var(--gap2);
+        border-radius: var(--gap1);
+      }
+
+      .input-container {
+        display: flex;
+        gap: var(--gap1);
+      }
+
+      .input-container input {
+        flex: 1;
+        padding: var(--gap2);
+        border: 1px solid var(--b-c2);
+        border-radius: var(--gap1);
+      }
+      .input-container input:focus {
+        outline: none;
+        border-color: var(--m-c1);
+      }
+
+      .input-container button {
+        background: var(--btn-primary);
+        color: var(--t-w);
+      }
+
+      .filter-container {
+        display: flex;
+        justify-content: center;
+        gap: var(--gap1);
+        margin: var(--gap2) 0;
+      }
+
+      .filter-container button {
+        background: var(--b-c1);
+      }
+
+      .filter-container button.active {
+        background: var(--active-c);
+        color: var(--t-w);
+      }
+
+      .todo-list li {
+        display: flex;
+        align-items: center;
+        padding: var(--gap1) var(--gap2);
+        border-bottom: 1px dotted var(--b-c1);
+        gap: var(--gap1);
+      }
+
+      .todo-list li.completed span {
+        text-decoration: line-through;
+        opacity: 0.3;
+      }
+
+      .todo-list li span {
+        flex: 1;
+      }
+
+      .todo-list li button {
+        color: var(--t-w);
+      }
+      .btn_done {
+        background: var(--btn-primary);
+      }
+      .btn_delete {
+        background: var(--btn-danger);
+      }
+
+      .todo-summary {
+        display: flex;
+        justify-content: space-between;
+        padding: var(--gap1) var(--gap2);
+        margin: var(--gap3) 0;
+        color: var(--t-c2);
+        border-radius: var(--gap1);
+        background-color: var(--b-c2);
+      }
+
+      .todo-summary button {
+        background: var(--btn-danger);
+        color: var(--t-w);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 앱 제목 -->
+      <h1>작심삼일타파</h1>
+
+      <!-- 입력 폼 -->
+      <div class="input-container">
+        <input placeholder="할 일을 입력하세요" />
+        <button>추가</button>
+      </div>
+
+      <!-- 필터 탭 -->
+      <div class="filter-container">
+        <button class="active">전체</button>
+        <button>미완료</button>
+        <button>완료</button>
+      </div>
+
+      <!-- 할 일 목록 -->
+      <ul class="todo-list">
+        <li>
+          <input type="checkbox" />
+          <span>1 할일 내용</span>
+          <button class="btn_delete">삭제</button>
+        </li>
+        <li class="completed">
+          <input type="checkbox" />
+          <span>2 할일 내용</span>
+          <button class="btn_delete">삭제</button>
+        </li>
+        <li>
+          <input type="checkbox" />
+          <span>1 할일 내용</span>
+          <button class="btn_delete">삭제</button>
+        </li>
+      </ul>
+
+      <!-- 요약 정보 -->
+      <div class="todo-summary">
+        <span>2 개 남음</span>
+        <button>완료된 항목 삭제</button>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="text/javascript">
+      const { createApp } = Vue;
+      let vm = createApp({
+        name: "App",
+        data() {
+          return {};
+        },
+      });
+      vm.mount("#app");
+    </script>
+  </body>
+</html>
