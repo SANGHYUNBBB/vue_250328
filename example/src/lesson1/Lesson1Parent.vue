@@ -30,6 +30,7 @@ export default {
 
   <!-- 필수 props 누락 시 콘솔영역에 경고메시지 확인 -->
   <MessageBox />
+  <!-- message 는 messagebox에서 필수 요소!! -->
   <MessageBox message="두번째 컨포넌트" sender="길동이" />
   <MessageBox message="두번째 컨포넌트" sender="길동이" :is-important="true" />
 </template>

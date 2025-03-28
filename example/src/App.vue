@@ -2,6 +2,7 @@
 import Lesson1Parent from './lesson1/Lesson1Parent.vue'
 import Lesson2Parent from './lesson2/Lesson2Parent.vue'
 import Lesson3Parent from './lesson3/Lesson3Parent.vue'
+import Test1Parent from './test1/Test1Parent.vue'
 import { markRaw } from 'vue' // markRaw 가져오기 추가
 
 export default {
@@ -13,6 +14,7 @@ export default {
         { id: 'lesson1', name: '레슨 1', component: markRaw(Lesson1Parent) },
         { id: 'lesson2', name: '레슨 2', component: markRaw(Lesson2Parent) },
         { id: 'lesson3', name: '레슨 3', component: markRaw(Lesson3Parent) },
+        { id: 'test1', name: '연습 1', component: markRaw(Test1Parent) },
       ],
       // 현재 선택된 컴포넌트 ID
       activeComponentId: null,
@@ -22,12 +24,13 @@ export default {
     Lesson1Parent,
     Lesson2Parent,
     Lesson3Parent,
+    Test1Parent,
   },
   computed: {
     // 선택된 컴포넌트 찾기 위한 computed 속성 추가
     selectedComponent() {
       if (!this.activeComponentId) return null
-      return this.components.find(comp => comp.id === this.activeComponentId)
+      return this.components.find((comp) => comp.id === this.activeComponentId)
     },
   },
   methods: {

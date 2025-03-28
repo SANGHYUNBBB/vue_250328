@@ -42,11 +42,7 @@ export default {
     </div>
     <div class="form-group">
       <label for="message">메시지:</label>
-      <textarea
-        id="message"
-        v-model="message"
-        placeholder="메시지 입력"
-      ></textarea>
+      <textarea id="message" v-model="message" placeholder="메시지 입력"></textarea>
     </div>
     <button @click="sendMessage" :disabled="!isValid">메시지 전송</button>
   </div>
